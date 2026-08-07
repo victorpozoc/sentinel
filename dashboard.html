@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SENTINEL | Dashboard</title>
+
+    <meta
+        name="description"
+        content="SENTINEL - Dashboard de supervisión de infraestructura."
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- =====================================
+         HEADER
+         ===================================== -->
+
+    <header class="dashboard-header">
+
+        <div class="header-brand">
+
+            <span class="brand-name">
+                SENTINEL
+            </span>
+
+            <span class="brand-separator">
+                /
+            </span>
+
+            <span class="company-name">
+                Agua Huanta
+            </span>
+
+        </div>
+
+
+        <div class="header-user">
+
+            <span class="user-name">
+                Admin
+            </span>
+
+            <button
+                id="logout-button"
+                class="logout-button"
+                type="button"
+            >
+                Salir
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================
+         MAIN
+         ===================================== -->
+
+    <main class="dashboard-container">
+
+
+        <!-- TÍTULO -->
+
+        <section class="dashboard-title">
+
+            <div>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+                <p>
+                    Estado actual de la infraestructura
+                </p>
+
+            </div>
+
+
+            <div class="connection-status">
+
+                <span class="status-dot"></span>
+
+                <span>
+                    Sistema conectado
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             ACTIVOS
+             ================================= -->
+
+        <section class="assets-section">
+
+
+            <div class="section-header">
+
+                <h2>
+                    Activos
+                </h2>
+
+                <span class="asset-count">
+                    2 activos
+                </span>
+
+            </div>
+
+
+
+            <div class="assets-grid">
+
+
+                <!-- =================================
+                     ACTIVO 01
+                     ================================= -->
+
+                <article class="asset-card">
+
+
+                    <div class="asset-header">
+
+                        <div>
+
+                            <span class="asset-type">
+                                RESERVORIO
+                            </span>
+
+                            <h3>
+                                Reservorio Norte
+                            </h3>
+
+                        </div>
+
+
+                        <span class="asset-status status-normal">
+
+                            <span class="status-dot"></span>
+
+                            Normal
+
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- VARIABLES -->
+
+                    <div class="variables-grid">
+
+
+                        <div class="variable">
+
+                            <span class="variable-name">
+                                Nivel
+                            </span>
+
+                            <span class="variable-value">
+                                72
+                                <small>%</small>
+                            </span>
+
+                        </div>
+
+
+                        <div class="variable">
+
+                            <span class="variable-name">
+                                Temperatura
+                            </span>
+
+                            <span class="variable-value">
+                                18.2
+                                <small>°C</small>
+                            </span>
+
+                        </div>
+
+
+                        <div class="variable">
+
+                            <span class="variable-name">
+                                Voltaje
+                            </span>
+
+                            <span class="variable-value">
+                                24.1
+                                <small>V</small>
+                            </span>
+
+                        </div>
+
+
+                        <div class="variable">
+
+                            <span class="variable-name">
+                                Señal LoRa
+                            </span>
+
+                            <span class="variable-value">
+                                -91
+                                <small>dBm</small>
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- FOOTER DEL ACTIVO -->
+
+                    <div class="asset-footer">
+
+                        <span>
+                            Última lectura
+                        </span>
+
+                        <strong>
+                            Hace 12 s
+                        </strong>
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- =================================
+                     ACTIVO 02
+                     ================================= -->
+
+                <article class="asset-card">
+
+
+                    <div class="asset-header">
+
+                        <div>
+
+                            <span class="asset-type">
+                                RESERVORIO
+                            </span>
+
+                            <h3>
+                                Reservorio Sur
+                            </h3>
+
+                        </div>
+
+
+                        <span class="asset-status status-warning">
+
+                            <span class="status-dot"></span>
+
+                            Advertencia
+
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- VARIABLES -->
+
+                    <div class="variables-grid">
+
+
+                        <div class="variable">
+
+                            <span class="variable-name">
+                                Nivel
+                            </span>
+
+                            <span class="variable-value">
+                                24
+                                <small>%</small>
+                            </span>
+
+                        </div>
+
+
+                        <div class="variable">
+
+                            <span class="variable-name">
+                                Temperatura
+                            </span>
+
+                            <span class="variable-value">
+                                17.8
+                                <small>°C</small>
+                            </span>
+
+                        </div>
+
+
+                        <div class="variable">
+
+                            <span class="variable-name">
+                                Voltaje
+                            </span>
+
+                            <span class="variable-value">
+                                23.7
+                                <small>V</small>
+                            </span>
+
+                        </div>
+
+
+                        <div class="variable">
+
+                            <span class="variable-name">
+                                Señal LoRa
+                            </span>
+
+                            <span class="variable-value">
+                                -97
+                                <small>dBm</small>
+
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- FOOTER DEL ACTIVO -->
+
+                    <div class="asset-footer">
+
+                        <span>
+                            Última lectura
+                        </span>
+
+                        <strong>
+                            Hace 8 s
+                        </strong>
+
+                    </div>
+
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             INFORMACIÓN DEL SISTEMA
+             ===================================== -->
+
+        <section class="system-information">
+
+
+            <div class="system-item">
+
+                <span>
+                    Última actualización
+                </span>
+
+                <strong id="last-update">
+                    Hace unos segundos
+                </strong>
+
+            </div>
+
+
+            <div class="system-item">
+
+                <span>
+                    Activos conectados
+                </span>
+
+                <strong>
+                    2 / 2
+                </strong>
+
+            </div>
+
+
+            <div class="system-item">
+
+                <span>
+                    SENTINEL
+                </span>
+
+                <strong>
+                    v1.0 MVP
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================
+         JAVASCRIPT
+         ===================================== -->
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

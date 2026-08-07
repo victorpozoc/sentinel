@@ -1,0 +1,808 @@
+```css
+/* =========================================
+   SENTINEL
+   Estilos principales - Login
+   AIIM Nova
+   ========================================= */
+
+
+/* ---------- Variables ---------- */
+
+:root {
+    --bg-primary: #0b1117;
+    --bg-secondary: #111a23;
+    --panel: #151f29;
+
+    --border: #263441;
+
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+
+    --accent: #22c55e;
+    --accent-hover: #16a34a;
+
+    --input-bg: #0d151d;
+
+    --danger: #ef4444;
+
+    --radius: 8px;
+}
+
+
+/* ---------- Reset ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: var(--bg-primary);
+    color: var(--text-primary);
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* ---------- Login Container ---------- */
+
+.login-container {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+}
+
+
+/* ---------- Login Panel ---------- */
+
+.login-panel {
+    width: 100%;
+    max-width: 420px;
+
+    background: var(--panel);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    padding: 42px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ---------- Brand ---------- */
+
+.brand {
+    text-align: center;
+
+    margin-bottom: 36px;
+}
+
+
+.brand h1 {
+    font-size: 2rem;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    margin-bottom: 8px;
+}
+
+
+.brand p {
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+
+    letter-spacing: 0.02em;
+}
+
+
+/* ---------- Form ---------- */
+
+#login-form {
+    width: 100%;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    color: var(--text-secondary);
+}
+
+
+/* ---------- Inputs ---------- */
+
+.form-group input {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    background: var(--input-bg);
+
+    border: 1px solid var(--border);
+    border-radius: 6px;
+
+    color: var(--text-primary);
+
+    font-size: 0.95rem;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.form-group input::placeholder {
+    color: #64748b;
+}
+
+
+.form-group input:focus {
+    border-color: var(--accent);
+
+    box-shadow:
+        0 0 0 2px rgba(34, 197, 94, 0.12);
+}
+
+
+/* ---------- Login Button ---------- */
+
+#login-button {
+    width: 100%;
+
+    margin-top: 8px;
+
+    padding: 13px 16px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: var(--accent);
+    color: #06110a;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.1s ease;
+}
+
+
+#login-button:hover {
+    background: var(--accent-hover);
+}
+
+
+#login-button:active {
+    transform: scale(0.99);
+}
+
+
+/* ---------- Login Message ---------- */
+
+.login-message {
+    min-height: 20px;
+
+    margin-top: 16px;
+
+    text-align: center;
+
+    font-size: 0.85rem;
+
+    color: var(--danger);
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 480px) {
+
+    .login-container {
+        padding: 16px;
+    }
+
+    .login-panel {
+        padding: 30px 24px;
+    }
+
+    .brand h1 {
+        font-size: 1.7rem;
+    }
+}
+
+
+
+/* =========================================
+   SENTINEL
+   Dashboard
+   ========================================= */
+
+
+/* ---------- Dashboard Body ---------- */
+
+.dashboard-body {
+    display: block;
+
+    min-height: 100vh;
+
+    background: var(--bg-primary);
+
+    color: var(--text-primary);
+}
+
+
+/* ---------- Header ---------- */
+
+.dashboard-header {
+    width: 100%;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 32px;
+
+    background: var(--bg-secondary);
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* ---------- Header Brand ---------- */
+
+.header-brand {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.brand-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+}
+
+
+.brand-separator {
+    color: #475569;
+}
+
+
+.company-name {
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+}
+
+
+/* ---------- Header User ---------- */
+
+.header-user {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+.user-name {
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+}
+
+
+.logout-button {
+    padding: 7px 14px;
+
+    background: transparent;
+
+    border: 1px solid var(--border);
+    border-radius: 5px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.8rem;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.logout-button:hover {
+    background: var(--panel);
+
+    color: var(--text-primary);
+
+    border-color: #475569;
+}
+
+
+/* ---------- Main Container ---------- */
+
+.dashboard-container {
+    width: 100%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding: 36px 32px 48px;
+}
+
+
+/* ---------- Dashboard Title ---------- */
+
+.dashboard-title {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin-bottom: 36px;
+}
+
+
+.dashboard-title h1 {
+    margin-bottom: 7px;
+
+    font-size: 1.8rem;
+    font-weight: 600;
+
+    letter-spacing: -0.02em;
+}
+
+
+.dashboard-title p {
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+}
+
+
+/* ---------- Connection Status ---------- */
+
+.connection-status {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.8rem;
+}
+
+
+.status-dot {
+    display: inline-block;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    flex-shrink: 0;
+}
+
+
+/* ---------- Assets Section ---------- */
+
+.assets-section {
+    width: 100%;
+}
+
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 16px;
+}
+
+
+.section-header h2 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+
+.asset-count {
+    color: var(--text-secondary);
+
+    font-size: 0.8rem;
+}
+
+
+/* ---------- Assets Grid ---------- */
+
+.assets-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 18px;
+}
+
+
+/* ---------- Asset Card ---------- */
+
+.asset-card {
+    background: var(--panel);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    padding: 24px;
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.asset-card:hover {
+    border-color: #3a4b5a;
+
+    transform: translateY(-1px);
+}
+
+
+/* ---------- Asset Header ---------- */
+
+.asset-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.asset-type {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.68rem;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+}
+
+
+.asset-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+
+/* ---------- Asset Status ---------- */
+
+.asset-status {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    white-space: nowrap;
+
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+
+.status-normal {
+    color: var(--accent);
+}
+
+
+.status-warning {
+    color: #f59e0b;
+}
+
+
+.status-warning .status-dot {
+    background: #f59e0b;
+}
+
+
+/* ---------- Variables ---------- */
+
+.variables-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 1px;
+
+    margin: 20px 0;
+
+    background: var(--border);
+
+    border: 1px solid var(--border);
+}
+
+
+.variable {
+    min-height: 92px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 16px;
+
+    background: var(--panel);
+}
+
+
+.variable-name {
+    margin-bottom: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.75rem;
+}
+
+
+.variable-value {
+    font-size: 1.45rem;
+    font-weight: 600;
+
+    letter-spacing: -0.02em;
+}
+
+
+.variable-value small {
+    margin-left: 3px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+
+/* ---------- Asset Footer ---------- */
+
+.asset-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 16px;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--text-secondary);
+
+    font-size: 0.75rem;
+}
+
+
+.asset-footer strong {
+    color: var(--text-primary);
+
+    font-weight: 500;
+}
+
+
+/* ---------- System Information ---------- */
+
+.system-information {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    margin-top: 36px;
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+
+.system-item {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    padding: 18px 20px;
+}
+
+
+.system-item + .system-item {
+    border-left: 1px solid var(--border);
+}
+
+
+.system-item span {
+    color: var(--text-secondary);
+
+    font-size: 0.72rem;
+}
+
+
+.system-item strong {
+    font-size: 0.85rem;
+
+    font-weight: 500;
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 768px) {
+
+    .dashboard-header {
+        padding: 0 20px;
+    }
+
+
+    .dashboard-container {
+        padding: 28px 20px 40px;
+    }
+
+
+    .dashboard-title {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 16px;
+
+        margin-bottom: 28px;
+    }
+
+
+    .assets-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .system-information {
+        grid-template-columns: 1fr;
+    }
+
+
+    .system-item + .system-item {
+        border-left: none;
+
+        border-top: 1px solid var(--border);
+    }
+
+}
+
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 480px) {
+
+    .dashboard-header {
+        height: auto;
+
+        min-height: 64px;
+
+        padding: 14px 16px;
+    }
+
+
+    .header-brand {
+        gap: 7px;
+    }
+
+
+    .brand-name {
+        font-size: 0.95rem;
+    }
+
+
+    .company-name {
+        display: none;
+    }
+
+
+    .user-name {
+        display: none;
+    }
+
+
+    .dashboard-container {
+        padding: 24px 16px 32px;
+    }
+
+
+    .dashboard-title h1 {
+        font-size: 1.5rem;
+    }
+
+
+    .asset-card {
+        padding: 18px;
+    }
+
+
+    .asset-header {
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+
+    .variables-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .variable {
+        min-height: 78px;
+    }
+
+
+    .variable-value {
+        font-size: 1.3rem;
+    }
+
+}
