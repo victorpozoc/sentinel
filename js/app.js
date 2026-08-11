@@ -1,329 +1,118 @@
 /* =========================================
-SENTINEL
-Aplicación principal - Autenticación
-AIIM Nova
-Versión: 0.0.1
-========================================= */
+   SENTINEL
+   Lógica principal - Login
+   AIIM Nova
+   ========================================= */
 
 
-/* ---------- Configuración API ---------- */
-
-
-/*
-URL del Web App de Google Apps Script
-
-Actualmente queda pendiente.
-
-Ejemplo:
-
-https://script.google.com/macros/s/XXXXXXXXXXXX/exec
-
-*/
-
-const API_URL = "https://script.google.com/macros/s/AKfycbzbbfmNhHj7DeILdSb0J5ynpR9dB2VP6sx2IE8HePwfy2StGDHHyuvFUafIwNL6oZmk/exec";
-
-
-
-/* ---------- Elementos HTML ---------- */
+/* ---------- Elementos ---------- */
 
 const loginForm = document.getElementById("login-form");
-
 const loginButton = document.getElementById("login-button");
-
 const loginMessage = document.getElementById("login-message");
 
 
+/* ---------- Login ---------- */
 
-/* ---------- Evento Login ---------- */
-
-loginForm.addEventListener("submit", async function(event){
-
+loginForm.addEventListener("submit", function (event) {
 
     event.preventDefault();
 
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
 
 
-    const username =
-        document
-        .getElementById("username")
-        .value
-        .trim();
+    /* Validación básica */
 
+    if (username === "" || password === "") {
 
-
-    const password =
-        document
-        .getElementById("password")
-        .value;
-
-
-
-    /*
-    Validación básica
-    */
-
-    if(username === "" || password === ""){
-
-
-        showMessage(
-            "Complete todos los campos."
-        );
-
+        showMessage("Complete todos los campos.");
 
         return;
-
     }
 
 
+    /* Estado de carga */
 
     setLoading(true);
 
 
-
     /*
-    =====================================
-    CONEXIÓN CON SENTINEL API
+     * LOGIN TEMPORAL
+     *
+     * Esta sección será reemplazada posteriormente
+     * por una petición a la API de SENTINEL.
+     */
 
-    Envía credenciales hacia
-    Google Apps Script
+    setTimeout(function () {
 
-    =====================================
-    */
+        if (username === "admin" && password === "sentinel") {
 
+            showMessage("Acceso autorizado.", "success");
 
-    try{
+            /*
+             * Temporalmente redirigimos al dashboard.
+             *
+             * Más adelante:
+             *
+             * API → autenticación → token/sesión
+             * → dashboard
+             */
 
+            setTimeout(function () {
 
-        const response = await fetch(
-            API_URL,
-            {
+                window.location.href = "dashboard.html";
 
-                method:"POST",
+            }, 800);
 
-                headers:{
-                    "Content-Type":
-                    "application/json"
-                },
+        } else {
 
-
-                body:JSON.stringify({
-
-                    usuario:username,
-
-                    password:password
-
-                })
-
-            }
-        );
-
-
-
-        const data =
-            await response.json();
-
-
-
-        /*
-        Respuesta esperada:
-
-        {
-          autorizado:true,
-          usuario:"admin",
-          rol:"administrador"
-        }
-
-        */
-
-
-
-        if(data.autorizado){
-
-
-
-            createSession(data);
-
-
-
-            showMessage(
-                "Acceso autorizado.",
-                "success"
-            );
-
-
-
-            setTimeout(function(){
-
-
-                window.location.href =
-                "dashboard.html";
-
-
-            },800);
-
-
-
-        }
-
-
-        else{
-
-
-            showMessage(
-                "Usuario o contraseña incorrectos."
-            );
-
+            showMessage("Usuario o contraseña incorrectos.");
 
             setLoading(false);
 
-
         }
 
-
-
-    }
-
-
-    catch(error){
-
-
-        console.error(
-            "Error conexión API:",
-            error
-        );
-
-
-        showMessage(
-            "Error de conexión con SENTINEL."
-        );
-
-
-        setLoading(false);
-
-
-    }
-
-
+    }, 800);
 
 });
 
 
-
-
-
-/* ---------- Crear sesión ---------- */
-
-
-function createSession(userData){
-
-
-    const session = {
-
-
-        usuario:
-        userData.usuario,
-
-
-        rol:
-        userData.rol,
-
-
-        fecha:
-        new Date().toISOString()
-
-
-    };
-
-
-
-    localStorage.setItem(
-
-        "sentinel_session",
-
-        JSON.stringify(session)
-
-    );
-
-
-}
-
-
-
-
-
 /* ---------- Mensajes ---------- */
 
+function showMessage(message, type = "error") {
 
-function showMessage(
-    message,
-    type="error"
-){
+    loginMessage.textContent = message;
 
+    if (type === "success") {
 
-    loginMessage.textContent =
-    message;
+        loginMessage.style.color = "#22c55e";
 
+    } else {
 
-
-    if(type==="success"){
-
-
-        loginMessage.style.color =
-        "#22c55e";
-
+        loginMessage.style.color = "#ef4444";
 
     }
-
-    else{
-
-
-        loginMessage.style.color =
-        "#ef4444";
-
-
-    }
-
-
-
 }
 
 
+/* ---------- Estado del botón ---------- */
 
+function setLoading(loading) {
 
+    if (loading) {
 
-/* ---------- Estado botón ---------- */
+        loginButton.disabled = true;
 
+        loginButton.textContent = "Verificando...";
 
-function setLoading(loading){
+    } else {
 
+        loginButton.disabled = false;
 
-
-    if(loading){
-
-
-        loginButton.disabled =
-        true;
-
-
-        loginButton.textContent =
-        "Verificando...";
-
+        loginButton.textContent = "Ingresar";
 
     }
-
-
-    else{
-
-
-        loginButton.disabled =
-        false;
-
-
-        loginButton.textContent =
-        "Ingresar";
-
-
-    }
-
 
 }
+
