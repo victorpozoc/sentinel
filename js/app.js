@@ -94,25 +94,19 @@ loginForm.addEventListener("submit", async function(event){
     try{
 
 
+        const formData = new URLSearchParams();
+
+        formData.append("usuario", username);
+        formData.append("password", password);
+
+
         const response = await fetch(
             API_URL,
             {
 
-                method:"POST",
+                method: "POST",
 
-                headers:{
-                    "Content-Type":
-                    "application/json"
-                },
-
-
-                body:JSON.stringify({
-
-                    usuario:username,
-
-                    password:password
-
-                })
+                body: formData
 
             }
         );
