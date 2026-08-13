@@ -12,422 +12,576 @@
 
     <title>SENTINEL | Dashboard</title>
 
-    <meta
-        name="description"
-        content="SENTINEL - Dashboard de supervisión de infraestructura."
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
     >
-
-    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 
-<body class="dashboard-body">
+<body>
+
+    <!-- =========================================
+    SENTINEL
+    Dashboard principal
+    AIIM Nova
+    ========================================== -->
 
 
-    <!-- =====================================
-         HEADER
-         ===================================== -->
+    <!-- ---------- Aplicación ---------- -->
 
-    <header class="dashboard-header">
-
-        <div class="header-brand">
-
-            <span class="brand-name">
-                SENTINEL
-            </span>
-
-            <span class="brand-separator">
-                /
-            </span>
-
-            <span class="company-name">
-                Agua Huanta
-            </span>
-
-        </div>
+    <div class="app">
 
 
-        <div class="header-user">
+        <!-- ---------- Sidebar ---------- -->
 
-            <span class="user-name">
-                Admin
-            </span>
+        <aside class="sidebar">
 
-            <button
-                id="logout-button"
-                class="logout-button"
-                type="button"
+            <div class="sidebar-header">
+
+                <h1>SENTINEL</h1>
+
+                <span>AIIM Nova</span>
+
+            </div>
+
+
+            <nav class="sidebar-menu">
+
+                <button
+                    class="menu-item active"
+                    data-view="resumen"
+                >
+                    <span>⌂</span>
+                    <span>Resumen</span>
+                </button>
+
+
+                <button
+                    class="menu-item"
+                    data-view="activos"
+                >
+                    <span>◈</span>
+                    <span>Activos</span>
+                </button>
+
+
+                <button
+                    class="menu-item"
+                    data-view="variables"
+                >
+                    <span>◉</span>
+                    <span>Variables</span>
+                </button>
+
+
+                <button
+                    class="menu-item"
+                    data-view="alertas"
+                >
+                    <span>⚠</span>
+                    <span>Alertas</span>
+                </button>
+
+
+                <button
+                    class="menu-item"
+                    data-view="eventos"
+                >
+                    <span>≡</span>
+                    <span>Eventos</span>
+                </button>
+
+            </nav>
+
+
+            <div class="sidebar-footer">
+
+                <button
+                    class="menu-item"
+                    id="logout-button"
+                >
+                    <span>↪</span>
+                    <span>Cerrar sesión</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ---------- Contenido ---------- -->
+
+        <main class="main-content">
+
+
+            <!-- ---------- Header ---------- -->
+
+            <header class="topbar">
+
+                <div>
+
+                    <h2 id="page-title">
+                        Resumen
+                    </h2>
+
+                    <p id="page-description">
+                        Estado general de la infraestructura
+                    </p>
+
+                </div>
+
+
+                <div class="user-info">
+
+                    <span id="user-name">
+                        Usuario
+                    </span>
+
+                    <span
+                        id="user-role"
+                        class="user-role"
+                    >
+                        —
+                    </span>
+
+                </div>
+
+            </header>
+
+
+            <!-- ---------- Vistas ---------- -->
+
+            <section
+                id="view-container"
+                class="view-container"
             >
-                Salir
-            </button>
-
-        </div>
-
-    </header>
 
 
+                <!-- ===== RESUMEN ===== -->
 
-    <!-- =====================================
-         MAIN
-         ===================================== -->
+                <div
+                    id="view-resumen"
+                    class="dashboard-view active"
+                >
 
-    <main class="dashboard-container">
+                    <div class="cards-grid">
 
+                        <div class="status-card">
 
-        <!-- TÍTULO -->
+                            <span class="card-label">
+                                Activos
+                            </span>
 
-        <section class="dashboard-title">
+                            <strong
+                                class="card-value"
+                                id="total-assets"
+                            >
+                                0
+                            </strong>
 
-            <div>
+                            <span class="card-status">
+                                Registrados
+                            </span>
 
-                <h1>
-                    Dashboard
-                </h1>
-
-                <p>
-                    Estado actual de la infraestructura
-                </p>
-
-            </div>
-
-
-            <div class="connection-status">
-
-                <span class="status-dot"></span>
-
-                <span>
-                    Sistema conectado
-                </span>
-
-            </div>
-
-        </section>
+                        </div>
 
 
+                        <div class="status-card">
 
-        <!-- =================================
-             ACTIVOS
-             ================================= -->
+                            <span class="card-label">
+                                Operativos
+                            </span>
 
-        <section class="assets-section">
+                            <strong
+                                class="card-value"
+                                id="operational-assets"
+                            >
+                                0
+                            </strong>
 
+                            <span class="card-status">
+                                Estado normal
+                            </span>
 
-            <div class="section-header">
-
-                <h2>
-                    Activos
-                </h2>
-
-                <span class="asset-count">
-                    2 activos
-                </span>
-
-            </div>
-
+                        </div>
 
 
-            <div class="assets-grid">
+                        <div class="status-card">
+
+                            <span class="card-label">
+                                Alertas
+                            </span>
+
+                            <strong
+                                class="card-value"
+                                id="total-alerts"
+                            >
+                                0
+                            </strong>
+
+                            <span class="card-status">
+                                Activas
+                            </span>
+
+                        </div>
 
 
-                <!-- =================================
-                     ACTIVO 01
-                     ================================= -->
+                        <div class="status-card">
 
-                <article class="asset-card">
+                            <span class="card-label">
+                                Críticas
+                            </span>
+
+                            <strong
+                                class="card-value"
+                                id="critical-alerts"
+                            >
+                                0
+                            </strong>
+
+                            <span class="card-status">
+                                Requieren atención
+                            </span>
+
+                        </div>
 
 
-                    <div class="asset-header">
+                        <div class="status-card">
+
+                            <span class="card-label">
+                                Offline
+                            </span>
+
+                            <strong
+                                class="card-value"
+                                id="offline-assets"
+                            >
+                                0
+                            </strong>
+
+                            <span class="card-status">
+                                Sin comunicación
+                            </span>
+
+                        </div>
+
+
+                        <div class="status-card">
+
+                            <span class="card-label">
+                                Actualización
+                            </span>
+
+                            <strong
+                                class="card-value"
+                                id="last-update"
+                            >
+                                —
+                            </strong>
+
+                            <span class="card-status">
+                                Último registro
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ===== ACTIVOS ===== -->
+
+                <div
+                    id="view-activos"
+                    class="dashboard-view"
+                >
+
+                    <div class="view-header">
+
+                        <h3>Activos</h3>
+
+                        <p>
+                            Infraestructura registrada en SENTINEL.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        id="assets-container"
+                        class="cards-grid"
+                    >
+
+                        <!--
+                        dashboard.js
+                        generará las tarjetas aquí.
+                        -->
+
+                    </div>
+
+                </div>
+
+
+                <!-- ===== VARIABLES ===== -->
+
+                <div
+                    id="view-variables"
+                    class="dashboard-view"
+                >
+
+                    <div class="view-header">
+
+                        <h3>Variables</h3>
+
+                        <p>
+                            Variables supervisadas actualmente.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        id="variables-container"
+                        class="cards-grid"
+                    >
+
+                        <!--
+                        Las tarjetas se generarán
+                        dinámicamente.
+                        -->
+
+                    </div>
+
+                </div>
+
+
+                <!-- ===== ALERTAS ===== -->
+
+                <div
+                    id="view-alertas"
+                    class="dashboard-view"
+                >
+
+                    <div class="view-header">
+
+                        <h3>Alertas</h3>
+
+                        <p>
+                            Eventos que requieren atención.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        id="alerts-container"
+                        class="alerts-container"
+                    >
+
+                        <!--
+                        Las alertas se generarán
+                        dinámicamente.
+                        -->
+
+                    </div>
+
+                </div>
+
+
+                <!-- ===== EVENTOS ===== -->
+
+                <div
+                    id="view-eventos"
+                    class="dashboard-view"
+                >
+
+                    <div class="view-header">
+
+                        <h3>Eventos</h3>
+
+                        <p>
+                            Historial de actividad de SENTINEL.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        id="events-container"
+                        class="events-container"
+                    >
+
+                        <!--
+                        Los eventos se generarán
+                        dinámicamente.
+                        -->
+
+                    </div>
+
+                </div>
+
+                <!-- ===== DETALLE ===== -->
+
+                <div
+                    id="view-detalle"
+                    class="dashboard-view"
+                >
+
+                    <div class="detail-header">
+
+                        <button
+                            id="detail-back-button"
+                            class="detail-back-button"
+                        >
+                            ← Volver
+                        </button>
 
                         <div>
 
-                            <span class="asset-type">
-                                RESERVORIO
+                            <span
+                                id="detail-type"
+                                class="detail-type"
+                            >
+                                —
                             </span>
 
-                            <h3>
-                                Reservorio Norte
+                            <h3 id="detail-title">
+                                Detalle
                             </h3>
 
+                            <p id="detail-subtitle">
+                                —
+                            </p>
+
                         </div>
-
-
-                        <span class="asset-status status-normal">
-
-                            <span class="status-dot"></span>
-
-                            Normal
-
-                        </span>
 
                     </div>
 
 
+                    <div
+                        id="detail-content"
+                        class="detail-content"
+                    >
 
-                    <!-- VARIABLES -->
-
-                    <div class="variables-grid">
-
-
-                        <div class="variable">
-
-                            <span class="variable-name">
-                                Nivel
-                            </span>
-
-                            <span class="variable-value">
-                                72
-                                <small>%</small>
-                            </span>
-
-                        </div>
-
-
-                        <div class="variable">
-
-                            <span class="variable-name">
-                                Temperatura
-                            </span>
-
-                            <span class="variable-value">
-                                18.2
-                                <small>°C</small>
-                            </span>
-
-                        </div>
-
-
-                        <div class="variable">
-
-                            <span class="variable-name">
-                                Voltaje
-                            </span>
-
-                            <span class="variable-value">
-                                24.1
-                                <small>V</small>
-                            </span>
-
-                        </div>
-
-
-                        <div class="variable">
-
-                            <span class="variable-name">
-                                Señal LoRa
-                            </span>
-
-                            <span class="variable-value">
-                                -91
-                                <small>dBm</small>
-                            </span>
-
-                        </div>
-
+                        <!--
+                        El contenido será generado
+                        dinámicamente por dashboard.js.
+                        -->
 
                     </div>
 
+                </div>
 
+                <!-- ===== HISTORICO ===== -->
 
-                    <!-- FOOTER DEL ACTIVO -->
+                <div id="view-historico" class="dashboard-view">
 
-                    <div class="asset-footer">
+                    <div class="detail-header">
 
-                        <span>
-                            Última lectura
-                        </span>
-
-                        <strong>
-                            Hace 12 s
-                        </strong>
-
-                    </div>
-
-
-                </article>
-
-
-
-                <!-- =================================
-                     ACTIVO 02
-                     ================================= -->
-
-                <article class="asset-card">
-
-
-                    <div class="asset-header">
+                        <button id="historico-back-button" class="back-button">
+                            ← Volver
+                        </button>
 
                         <div>
-
-                            <span class="asset-type">
-                                RESERVORIO
-                            </span>
-
-                            <h3>
-                                Reservorio Sur
-                            </h3>
-
+                            <span id="historico-type" class="detail-type"></span>
+                            <h2 id="historico-title" class="detail-title"></h2>
+                            <p id="historico-subtitle" class="detail-subtitle"></p>
                         </div>
-
-
-                        <span class="asset-status status-warning">
-
-                            <span class="status-dot"></span>
-
-                            Advertencia
-
-                        </span>
 
                     </div>
 
 
+                    <!-- CONTROLES -->
 
-                    <!-- VARIABLES -->
+                    <div class="historico-controls">
 
-                    <div class="variables-grid">
+                        <div class="control-group">
 
+                            <span class="control-label">Ventana</span>
 
-                        <div class="variable">
-
-                            <span class="variable-name">
-                                Nivel
-                            </span>
-
-                            <span class="variable-value">
-                                24
-                                <small>%</small>
-                            </span>
-
-                        </div>
-
-
-                        <div class="variable">
-
-                            <span class="variable-name">
-                                Temperatura
-                            </span>
-
-                            <span class="variable-value">
-                                17.8
-                                <small>°C</small>
-                            </span>
+                            <div class="history-controls" id="historico-range-buttons">
+                                <button class="history-range active" data-range="1h">1 h</button>
+                                <button class="history-range" data-range="6h">6 h</button>
+                                <button class="history-range" data-range="24h">24 h</button>
+                                <button class="history-range" data-range="7d">7 días</button>
+                                <button class="history-range" data-range="30d">30 días</button>
+                            </div>
 
                         </div>
 
 
-                        <div class="variable">
+                        <div class="control-group">
 
-                            <span class="variable-name">
-                                Voltaje
-                            </span>
+                            <span class="control-label">Filtro de hora</span>
 
-                            <span class="variable-value">
-                                23.7
-                                <small>V</small>
-                            </span>
+                            <select id="historico-hour-mode" class="historico-select">
+                                <option value="ninguno">Sin filtro</option>
+                                <option value="especifica">Hora específica</option>
+                                <option value="rango">Rango horario</option>
+                            </select>
+
+
+                            <!-- Hora específica -->
+
+                            <select id="historico-hour-value" class="historico-select" style="display: none;">
+                                <!-- Se llena dinámicamente con JS: 00:00 a 23:00 -->
+                            </select>
+
+
+                            <!-- Rango horario -->
+
+                            <div id="historico-hour-range" class="historico-hour-range" style="display: none;">
+
+                                <select id="historico-hour-start" class="historico-select">
+                                    <!-- 00 a 23 -->
+                                </select>
+
+                                <span>a</span>
+
+                                <select id="historico-hour-end" class="historico-select">
+                                    <!-- 00 a 23 -->
+                                </select>
+
+                            </div>
+
+
+                            <button id="historico-hour-clear" class="historico-clear-btn" style="display: none;">
+                                Quitar filtro
+                            </button>
 
                         </div>
-
-
-                        <div class="variable">
-
-                            <span class="variable-name">
-                                Señal LoRa
-                            </span>
-
-                            <span class="variable-value">
-                                -97
-                                <small>dBm</small>
-
-                            </span>
-
-                        </div>
-
 
                     </div>
 
 
+                    <!-- GRÁFICA -->
 
-                    <!-- FOOTER DEL ACTIVO -->
+                    <div class="detail-card detail-card-wide">
 
-                    <div class="asset-footer">
+                        <div class="detail-card-title">Tendencia</div>
 
-                        <span>
-                            Última lectura
-                        </span>
+                        <div id="historico-summary" class="history-summary"></div>
 
-                        <strong>
-                            Hace 8 s
-                        </strong>
+                        <div id="historico-chart-container" class="historico-chart-container">
+
+                            <div id="historico-tooltip" class="historico-tooltip"></div>
+
+                        </div>
 
                     </div>
 
-
-                </article>
-
-
-            </div>
-
-        </section>
+                </div>
 
 
+            </section>
 
-        <!-- =====================================
-             INFORMACIÓN DEL SISTEMA
-             ===================================== -->
+        </main>
 
-        <section class="system-information">
+    </div>
 
-
-            <div class="system-item">
-
-                <span>
-                    Última actualización
-                </span>
-
-                <strong id="last-update">
-                    Hace unos segundos
-                </strong>
-
-            </div>
-
-
-            <div class="system-item">
-
-                <span>
-                    Activos conectados
-                </span>
-
-                <strong>
-                    2 / 2
-                </strong>
-
-            </div>
-
-
-            <div class="system-item">
-
-                <span>
-                    SENTINEL
-                </span>
-
-                <strong>
-                    v1.0 MVP
-                </strong>
-
-            </div>
-
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- =====================================
-         JAVASCRIPT
-         ===================================== -->
 
     <script src="js/dashboard.js"></script>
 
