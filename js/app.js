@@ -112,9 +112,14 @@ loginForm.addEventListener("submit", async function(event){
         );
 
 
+        console.log("HTTP:", response.status);
+        console.log("OK:", response.ok);
 
-        const data =
-            await response.json();
+        const text = await response.text();
+
+        console.log("Respuesta de SENTINEL API:", text);
+
+        const data = JSON.parse(text);
 
 
 
